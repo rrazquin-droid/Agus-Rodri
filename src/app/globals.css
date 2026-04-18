@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bone: #F5F1EA;
+  --color-bone-soft: #FAF7F1;
+  --color-ink: #2B2A27;
+  --color-ink-soft: #3D3B37;
+  --color-sage: #8FA68E;
+  --color-sage-light: #B8C9B6;
+  --color-sage-lighter: #DCE5DB;
+  --color-sage-dark: #6B8369;
+  --color-champagne: #C9A96E;
+  --color-champagne-light: #E8D9B8;
+  --color-terracotta: #C67B5C;
+  --color-terracotta-light: #E8C8B8;
+  --color-terracotta-lighter: #F2DED1;
+  --color-mist: #E8E3DA;
+  --color-mist-soft: #F0ECE3;
+  --color-shadow: #7A766F;
+
+  --font-display: var(--font-dm-sans);
+  --font-body: var(--font-inter);
+
+  --radius-pill: 9999px;
+  --radius-capsule: 28px;
+  --radius-card: 20px;
+}
+
+@layer base {
+  html, body {
+    background: var(--color-bone);
+    color: var(--color-ink);
+    font-family: var(--font-body), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display), system-ui, sans-serif;
+    letter-spacing: -0.01em;
+  }
+  .tracking-wordmark {
+    letter-spacing: 0.04em;
+  }
+  .shadow-soft {
+    box-shadow: 0 1px 2px rgba(43, 42, 39, 0.04), 0 8px 24px rgba(43, 42, 39, 0.06);
+  }
+  .shadow-phone {
+    box-shadow: 0 40px 80px -20px rgba(43, 42, 39, 0.25), 0 10px 30px -10px rgba(43, 42, 39, 0.15);
+  }
+
+  @keyframes breathe {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.75; transform: scale(1.04); }
+  }
+  .animate-breathe {
+    animation: breathe 2.6s ease-in-out infinite;
+  }
+
+  @keyframes draw-check {
+    from { stroke-dashoffset: 24; }
+    to { stroke-dashoffset: 0; }
+  }
+  .animate-check {
+    stroke-dasharray: 24;
+    animation: draw-check 0.6s ease-out forwards;
+  }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-up {
+    animation: fade-up 0.5s ease-out backwards;
+  }
+}
