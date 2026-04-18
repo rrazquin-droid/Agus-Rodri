@@ -91,7 +91,14 @@ const mvpCompleto: Screen[] = [
   },
 ];
 
-const flujos = [
+type Flujo = {
+  nombre: string;
+  descripcion: string;
+  tone: "sage" | "terracotta" | "champagne";
+  steps: { label: string; href: string | null }[];
+};
+
+const flujos: Flujo[] = [
   {
     nombre: "Happy path",
     descripcion: "Recepción de confirmación positiva",
